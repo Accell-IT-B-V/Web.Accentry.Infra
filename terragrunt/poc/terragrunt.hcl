@@ -3,7 +3,6 @@ locals {
   project = "Web.Accentry"
   owner   = "Accell-IT-B-V"
 
-  // From examples/default_locals.tf
   env_name         = get_env("TG_ENV", "dev")  // Allow override via env var or set in env files
   az_region        = "westeurope"
   project_name     = "accentry"
