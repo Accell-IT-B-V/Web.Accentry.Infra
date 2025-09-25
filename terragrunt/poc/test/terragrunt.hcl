@@ -5,9 +5,12 @@ include {
 
 locals {
   env = "test"
+  additional_tags = {
+    environment = local.env
+  }
 }
 
 inputs = merge(local.inputs, {
-  environment = local.env
-  # Add PoC-specific overrides here
+  env_name = local.env
+  additional_tags = local.additional_tags
 })

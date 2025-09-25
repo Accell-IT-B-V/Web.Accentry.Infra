@@ -4,10 +4,14 @@ include {
 }
 
 locals {
-  env = "production"
+  env = "prod"
+  additional_tags = {
+    environment = local.env
+    "Business Criticality" = "High"  // Override for production
+  }
 }
 
 inputs = merge(local.inputs, {
-  environment = local.env
-  # Add production-specific overrides here
+  env_name = local.env
+  additional_tags = local.additional_tags
 })
